@@ -8,3 +8,5 @@ MIR (Music Information Retrieval) Ciencia interdisciplinaria encargada de recupe
 HPCP (Harmonic Pitch Class Profile). Método basado en 8 pasos que, dado un archivo de audio, entrega un vector con la probabilidad de uso de cada nota (lo que permite definir acordes por secciones al analizar por partes). [Harmonic Pitch Class Profiles](https://en.wikipedia.org/wiki/Harmonic_pitch_class_profiles)
 
 Ejemplo de [HPCP en Python](https://github.com/jvbalen/hpcp_demo)
+
+[Dataset de Chordify](https://github.com/chordify/CASD)
