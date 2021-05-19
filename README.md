@@ -1,12 +1,20 @@
 # HarmoNice
-HarmoNice is a musical recognizer that provides information about chord progression made in Python
+HarmoNice is a musical melodic predictor through polynomial interpolation with numerical methods.
 
-## Técnicas a usar y por consultar
+## Técnicas a usar
 
-MIR (Music Information Retrieval) Ciencia interdisciplinaria encargada de recuperar información de la música. Seguramente aquí se explican diversas técnicas para lograr nuestro objetivo. [Recuperación de información musical](https://es.wikipedia.org/wiki/Recuperaci%C3%B3n_de_informaci%C3%B3n_musical)
+Para implementar esto, decidimos hacer lo siguiente:
 
-HPCP (Harmonic Pitch Class Profile). Método basado en 8 pasos que, dado un archivo de audio, entrega un vector con la probabilidad de uso de cada nota (lo que permite definir acordes por secciones al analizar por partes). [Harmonic Pitch Class Profiles](https://en.wikipedia.org/wiki/Harmonic_pitch_class_profiles)
+**1.** Graficamos una partitura como una función a trozos. El eje *x* representa los *beats* musicales para contar el tiempo y el eje *y* corresponde a la frecuencia en Hz de la nota.
 
-Ejemplo de [HPCP en Python](https://github.com/jvbalen/hpcp_demo)
+|Antes|Después|
+|--|--|
+|![](img/little-star.png)|![](img/little-star-function.jpeg)|
 
-[Dataset de Chordify](https://github.com/chordify/CASD)
+**2.** Se transforma esta función en un **arreglo de tuplas** que pueda ser interpretado por Python
+
+**3.** Sea $p$ un valor de precisión basado en la cantidad de puntos de referencia que se tomarán por nota. Este valor se inicializa en este paso. Si $p=1$, se tomará el punto más a la izquierda del intervalo para la tabla de valores.
+
+**4.** Con los puntos seleccionados, se genera un polinomio interpolante que permitirá trazar una función nueva.
+
+**5.** Se ejecuta el sonido que esta función de onda Hz en el tiempo produce y se comprueba con la parte armónica de la canción para ver su efectividad.
